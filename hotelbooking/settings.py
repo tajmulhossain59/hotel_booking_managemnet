@@ -5,7 +5,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 SECRET_KEY = "dev-secret-key"  # production এ env থেকে নিতে হবে
 DEBUG = True
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'hotel-booking-managemnet-1.onrender.com']
 
 INSTALLED_APPS = [
     "django.contrib.admin",
