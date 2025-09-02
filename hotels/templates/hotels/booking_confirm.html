@@ -1,0 +1,13 @@
+{% extends "hotels/base.html" %}
+{% block title %}Booking Confirmed{% endblock %}
+
+{% block content %}
+<div class="auth-container">
+    <h2>Booking Confirmed!</h2>
+    <p>Thank you, {{ booking.user.username }}. Your booking at <strong>{{ booking.hotel.name }}</strong> is confirmed.</p>
+    <p>Check-in: {{ booking.check_in }}</p>
+    <p>Check-out: {{ booking.check_out }}</p>
+    <p>Total Paid: ${{ booking.total_price }}</p>
+    <a href="{% url 'hotels:list' %}" class="btn btn-green">Back to Hotels</a>
+</div>
+{% endblock %}

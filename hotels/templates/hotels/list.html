@@ -1,0 +1,37 @@
+{% extends "hotels/base.html" %}
+{% block title %}Hotels{% endblock %}
+{% block content %}
+<h2 style="margin-bottom:20px;">Available Hotels</h2>
+<div class="hotel-grid">
+    {% for data in hotel_data %}
+    {% with hotel=data.hotel avg=data.avg_rating %}
+    <div class="hotel-card">
+        {% if hotel.main_image %}
+            <img src="{{ hotel.main_image.url }}" alt="{{ hotel.name }}">
+        {% else %}
+            <img src="" alt="No Image">
+        {% endif %}
+        <h3><a href="{% url 'hotels:detail' hotel.pk %}">{{ hotel.name }}</a></h3>
+        <p>{{ hotel.address|truncatechars:80 }}</p>
+        <div class="rating">
+            {% if avg > 0 %}
+                {% for i in "12345" %}
+                    {% if forloop.counter <= avg %}
+                        <span class="star">&#9733;</span>
+                    {% else %}
+                        <span class="star empty">&#9734;</span>
+                    {% endif %}
+                {% endfor %}
+            {% else %}
+                <p>No reviews yet</p>
+            {% endif %}
+        </div>
+        <a href="{% url 'hotels:detail' hotel.pk %}" class="btn">View Details</a>
+        <a href="{% url 'hotels:book' hotel.pk %}" class="btn btn-primary">Book Now</a>
+    </div>
+    {% endwith %}
+    {% empty %}
+    <p>No hotels available right now.</p>
+    {% endfor %}
+</div>
+{% endblock %}

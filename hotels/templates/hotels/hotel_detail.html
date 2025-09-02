@@ -1,0 +1,60 @@
+{% extends "hotels/base.html" %}
+{% block title %}{{ hotel.name }}{% endblock %}
+{% block content %}
+<div class="hotel-detail">
+    <h1>{{ hotel.name }}</h1>
+    <p class="address">{{ hotel.address }}</p>
+    <p>{{ hotel.description }}</p>
+    
+    {% if hotel.main_image %}
+        <img class="main-image" src="{{ hotel.main_image.url }}" alt="{{ hotel.name }}">
+    {% endif %}
+    
+    <h3>Photos</h3>
+    <div class="photos">
+        {% for p in photos %}
+            <img src="{{ p.image.url }}" class="photo-thumb" width="150">
+        {% empty %}
+            <p>No additional photos.</p>
+        {% endfor %}
+    </div>
+
+    <h3>Reviews</h3>
+    <div class="reviews">
+        {% for rev in reviews %}
+        <div class="review">
+            <strong>{{ rev.user.username }}</strong>
+            <span class="rating">
+                {% for i in "12345" %}
+                    {% if forloop.counter <= rev.rating %}
+                        <span class="star">&#9733;</span>
+                    {% else %}
+                        <span class="star empty">&#9734;</span>
+                    {% endif %}
+                {% endfor %}
+            </span>
+            <p>{{ rev.comment }}</p>
+            {% if user == rev.user %}
+                <a href="{% url 'hotels:edit_review' rev.id %}" class="btn btn-small">Edit</a>
+                <a href="{% url 'hotels:delete_review' rev.id %}" class="btn btn-small btn-danger">Delete</a>
+            {% endif %}
+        </div>
+        {% empty %}
+            <p>No reviews yet.</p>
+        {% endfor %}
+    </div>
+
+    {% if user.is_authenticated %}
+    <h4>Leave a review</h4>
+    <form method="post" action="{% url 'hotels:add_review' hotel.pk %}">
+        {% csrf_token %}
+        {{ review_form.as_p }}
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+    {% else %}
+    <p><a href="{% url 'accounts:login' %}">Login</a> to leave a review.</p>
+    {% endif %}
+
+    <a href="{% url 'hotels:book' hotel.pk %}" class="btn btn-primary">Book this hotel</a>
+</div>
+{% endblock %}

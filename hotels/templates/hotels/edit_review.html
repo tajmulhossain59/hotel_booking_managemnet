@@ -1,0 +1,14 @@
+{% extends "hotels/base.html" %}
+{% block title %}Edit Review{% endblock %}
+
+{% block content %}
+<div class="auth-container">
+    <h2>Edit Your Review for {{ review.hotel.name }}</h2>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="btn btn-green">Update Review</button>
+        <a href="{% url 'hotels:detail' review.hotel.pk %}" class="btn btn-red">Cancel</a>
+    </form>
+</div>
+{% endblock %}

@@ -1,0 +1,18 @@
+{% extends "hotels/base.html" %}
+{% block title %}Book {{ hotel.name }}{% endblock %}
+
+{% block content %}
+<div class="auth-container">
+    <h2>Book {{ hotel.name }}</h2>
+    <p><strong>Check-in:</strong> {{ hotel.check_in }}</p>
+    <p><strong>Check-out:</strong> {{ hotel.check_out }}</p>
+    <p><strong>Price per night:</strong> ${{ hotel.price_per_night }}</p>
+    <p><strong>Your wallet balance:</strong> ${{ user.profile.wallet }}</p>
+
+    <form method="post">
+        {% csrf_token %}
+        {{ booking_form.as_p }}
+        <button type="submit" class="btn btn-green">Confirm Booking</button>
+    </form>
+</div>
+{% endblock %}

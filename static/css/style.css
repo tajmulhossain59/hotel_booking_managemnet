@@ -1,0 +1,291 @@
+/* Common Styles */
+body { font-family: Arial, sans-serif; margin: 0; padding: 0; background: #f5f5f5; }
+header { background: #2c3e50; color: white; padding: 15px; }
+header .nav { display: flex; justify-content: space-between; align-items: center; }
+header a { color: white; text-decoration: none; margin-left: 15px; }
+header a:hover { text-decoration: underline; }
+
+main { padding: 20px; }
+
+.hotel-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 20px; }
+.hotel-card { background: white; padding: 15px; border-radius: 8px; box-shadow: 0 0 8px rgba(0,0,0,0.1); text-align: center; }
+.hotel-card img { width: 100%; height: 150px; object-fit: cover; border-radius: 8px; }
+
+.hotel-detail { background: white; padding: 20px; border-radius: 8px; box-shadow: 0 0 8px rgba(0,0,0,0.1); margin-bottom: 20px; }
+.hotel-detail img.main-image { width: 100%; max-height: 400px; object-fit: cover; border-radius: 8px; margin-bottom: 15px; }
+.photos img.photo { margin: 5px; border-radius: 6px; }
+
+.auth-container { background: white; padding: 30px; max-width: 400px; margin: auto; border-radius: 12px; box-shadow: 0 0 12px rgba(0,0,0,0.1); }
+.auth-container h2 { text-align: center; margin-bottom: 20px; }
+
+.input-field { width: 100%; padding: 10px; margin-bottom: 15px; border-radius: 6px; border: 1px solid #ccc; }
+
+.btn { display: inline-block; padding: 10px 15px; background: #2980b9; color: white; text-decoration: none; border-radius: 5px; }
+.btn:hover { background: #3498db; }
+
+.btn-green { background: #27ae60; }
+.btn-green:hover { background: #2ecc71; }
+
+.btn-red { background: #e74c3c; }
+.btn-red:hover { background: #c0392b; }
+
+.btn-small { font-size: 0.85rem; padding: 6px 10px; margin-right: 5px; }
+
+.messages { margin-bottom: 10px; }
+.message { padding: 10px; border-radius: 5px; margin-bottom:5px; }
+.message.success { background: #2ecc71; color: white; }
+.message.error { background: #e74c3c; color: white; }
+
+footer { text-align: center; padding: 15px; background: #2c3e50; color: white; margin-top: 30px; }
+/* Booking & Review Pages */
+.auth-container h2 { margin-bottom: 20px; }
+.auth-container p { margin-bottom: 10px; }
+
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #f2f2f2;
+    color: #333;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* Header */
+header {
+    background-color: #2c3e50;
+    color: white;
+    padding: 15px 30px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+header .nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header h1 a {
+    color: white;
+    font-size: 1.8rem;
+    font-weight: bold;
+}
+
+header nav a {
+    margin-left: 20px;
+    font-weight: 500;
+    transition: 0.3s;
+}
+
+header nav a:hover {
+    color: #1abc9c;
+}
+
+/* Main */
+main {
+    padding: 30px;
+    min-height: 80vh;
+}
+
+/* Messages */
+.messages {
+    margin-bottom: 20px;
+}
+
+.message {
+    padding: 12px 20px;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    font-weight: 500;
+}
+
+.message.success {
+    background-color: #2ecc71;
+    color: white;
+}
+
+.message.error {
+    background-color: #e74c3c;
+    color: white;
+}
+
+/* Hotel Grid */
+.hotel-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+}
+
+.hotel-card {
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+    display: flex;
+    flex-direction: column;
+}
+
+.hotel-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+
+.hotel-card img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+}
+
+.hotel-card h3 {
+    padding: 10px 15px;
+    font-size: 1.2rem;
+    color: #2c3e50;
+}
+
+.hotel-card p {
+    padding: 0 15px 10px 15px;
+    font-size: 0.95rem;
+    color: #666;
+}
+
+.btn {
+    display: inline-block;
+    margin: 10px 15px 15px 15px;
+    padding: 10px 20px;
+    background-color: #1abc9c;
+    color: white;
+    border-radius: 6px;
+    font-weight: 600;
+    text-align: center;
+    transition: 0.3s;
+}
+
+.btn:hover {
+    background-color: #16a085;
+}
+
+/* Hotel Detail */
+.hotel-detail {
+    background: white;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    margin-bottom: 30px;
+}
+
+.hotel-detail img {
+    width: 100%;
+    max-height: 400px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-top: 15px;
+}
+
+/* Photos Section */
+.photos {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-bottom: 25px;
+}
+
+.photos img {
+    width: 150px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+/* Reviews */
+.reviews {
+    margin-top: 20px;
+}
+
+.review {
+    background: #ecf0f1;
+    padding: 15px;
+    border-radius: 10px;
+    margin-bottom: 15px;
+}
+
+.review strong {
+    color: #2c3e50;
+}
+
+.review p {
+    margin-top: 8px;
+    font-size: 0.95rem;
+    color: #555;
+}
+
+.review a {
+    margin-right: 10px;
+    font-size: 0.9rem;
+    color: #e67e22;
+}
+
+.review a:hover {
+    color: #d35400;
+}
+
+/* Forms */
+form {
+    background: white;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    margin-bottom: 30px;
+}
+
+form input, form select, form textarea {
+    width: 100%;
+    padding: 10px 12px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 1rem;
+}
+
+form button {
+    background-color: #1abc9c;
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 6px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+form button:hover {
+    background-color: #16a085;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 20px;
+    background: #2c3e50;
+    color: white;
+    margin-top: 30px;
+}
+
+/* Responsive */
+@media(max-width:768px){
+    header .nav {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    header nav {
+        margin-top: 10px;
+    }
+}
